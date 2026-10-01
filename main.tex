@@ -1,0 +1,394 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tensor}
+\usepackage{mathpazo}
+\usepackage{epstopdf}
+\usepackage{inputenc}
+\usepackage{relsize}
+\usepackage[normalem]{ulem}
+\usepackage{cancel}
+\usepackage{xcolor}
+\usepackage[none]{hyphenat}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[affil-it]{authblk}
+\usepackage[document]{ragged2e}
+\usepackage{pgfplots}
+\usepackage[nodisplayskipstretch]{setspace}
+\newtheorem{lemma}{Lemma}
+
+
+\date{28.06.24} % Puts in today's date, or another date if you write a date between the {} symbols
+\graphicspath{ {./images/} }
+\begin{document}
+\titlespacing*{\section}{0pt}{0.5\baselineskip}{\baselineskip}
+\title{How do mathematical principles underpin modern cryptographic algorithms, and what are the implications for cybersecurity?}
+
+\author{\textbf{Supervisor:} Serkan Karakus%
+  \thanks{Electronic address: \texttt{snk@barton.ac.uk};  Supervisor}}
+\affil{Barton Peveril Sixth Form College}
+\author{\textbf{Student:} Vishaan Vohra%
+  \thanks{Electronic address: \texttt{23VV1294@barton.ac.uk};  Student}}
+\affil{Mathematics and Computing Department,\\Chestnut Avenue,\\Eastleigh, SO50 5ZA, UK}
+
+\date{Dated: June 28, 2024}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Abstract}
+For thousands of years, cryptography has been pivotal in securing communication and has evolved through several generations of messengers. From varying the intended use of certain hieroglyphics in Ancient Egypt, to the encryption of secret plans using the Enigma machine in World War II, cryptographic techniques have continually evolved to meet the demands of securing information against unauthorised access. 
+
+\
+
+As technology advances, particularly considering the dawn of quantum computing, are these traditional methods still safe? Which algorithms are the best at protecting our data? How does one effectively compare them? What are the mathematical principles behind them?
+
+\
+
+In this report, we aim to tackle these critical questions, exploring encryption algorithms, delving into the underlying mathematics that construct them and comparing their practicality.
+
+
+\section{Introduction}
+
+
+\subsection{What is Cryptography?}
+Cryptography is described by definition as the art of writing or solving codes. 
+
+\subsection{History}
+Although only considered through systematic study around a century ago, cryptography has been used since around 1900 BCE. An inscription found in an Egyptian tomb used some unusual hieroglyphic symbols - an example of transforming text to imply an alternative meaning. 
+
+\
+
+At around 100 BC, Julius Caesar used encryption to send secret messages to army generals on the frontline. A very well-known substitution cipher, the Caesar Cipher, comes from this.
+
+\subsection{Key Terms}
+Plaintext: the original format of some information.
+
+\
+
+Ciphertext: the encrypted equivalent of this information. 
+
+\
+
+Encryption: the process of converting plaintext into a ciphertext, especially to prevent unauthorised access. 
+
+\
+
+Decryption: the process of transforming ciphertext into plaintext. 
+
+\
+
+Key: a string of specifically organised characters used to perform the encryption algorithm.
+
+\
+
+Public: all parties know the key.
+
+\
+
+Private: only relevant parties know the key.
+
+\
+
+Algorithm: a process or set of rules to be followed.
+
+\
+
+
+\section{Importance of Cryptography in Modern Cybersecurity}
+On global, national, and regional levels, cryptography is used to encrypt and decrypt our data, ensuring that it is kept private and away from unauthorised access. 
+
+\section{The Role of Mathematics in Cryptography}
+
+
+
+\subsection{Number Theory}
+Number theory, a fundamental branch of mathematics, plays a pivotal role in the development of cryptographic algorithms by providing the theoretical basis for various encryption methods. It primarily deals with the properties and relationships of integers, which are essential for creating secure cryptographic systems. Key algorithms such as RSA (Rivest-Shamir-Adleman) rely heavily on number-theoretic concepts. For instance, RSA's security is based on the difficulty of factoring large composite numbers. The effectiveness of these algorithms hinges on the computational difficulty of solving these number-theoretic problems, which underpins their cryptographic strength.
+
+\
+
+The use of number theory in cryptography ensures both the security and efficiency of encryption methods. Algorithms derived from number-theoretic principles can generate secure keys that are computationally infeasible to break with current technology. This inherent difficulty ensures that even with significant computational power, unauthorised decryption remains practically impossible. Number theory's contribution to cryptography not only ensures secure digital communication but also drives advancements in encryption techniques, safeguarding sensitive information in an increasingly digital world.
+
+
+\subsection{Group Theory}
+Group theory, a branch of abstract algebra, underpins many modern cryptographic algorithms by providing a structured mathematical framework. 
+
+\
+
+At its core, a group is defined by a set of elements and an operation that satisfies closure, associativity, the existence of an identity element, and inverses. These properties ensure that operations within the encryption process are consistent and reversible. 
+
+\
+
+Closure: If performing the operation on any two elements of the group results in another element that is also within the group.
+\[
+\{a, b, c, d\}
+\]
+\[
+f(a) \Rightarrow \{b, c, d\}
+\]
+\
+
+Associativity: The operation is associative if the grouping of the elements does not change the result, meaning: 
+\[
+(a \ast b) \ast c = a \ast (b \ast c)
+\]
+
+\
+
+Identity: There exists an element in the group that, when used in the operation with any element of the group, leaves the other element unchanged.
+\[
+a * b = a \therefore b \text{ is the identity element.}
+\]
+\
+
+Inverse: For every element in the group, there exists another element that, when combined with the operation, results in the identity element.
+\[
+a * b = x, \quad c * d = x, \quad e * f = x \quad \therefore \quad x \text{ is the identity element.}
+\]
+\
+
+The advantages of group theory in cryptography are significant. Its rigorous mathematical foundation ensures that cryptographic algorithms are based on proven principles, while the structured nature of groups allows for efficient computation of cryptographic operations. This combination of efficiency and security makes group-based cryptographic protocols practical for real-world applications, ensuring the protection of digital communications in an increasingly interconnected world.
+
+
+\section{Purpose of this Investigation}
+This investigation looks into which mathematical principles derived from number and group theory are used in encryption algorithms and how these ensure a high level of security.
+
+\section{Symmetric vs Asymmetric Encryption}
+This section compares symmetric and asymmetric encryption.
+
+\subsection{Symmetric Encryption}
+This subsection discusses symmetric encryption.
+
+\subsubsection{Background}
+Both the sender and receiver use the same key for the encryption and decryption processes. The key must be kept secret to avoid data misuse. 
+
+\
+
+To encrypt, the data is put into the algorithm using the key, and ciphertext is outputted. To decrypt, the same key and algorithm are used.
+
+\
+
+The Advanced Encryption Standard (AES) uses symmetric encryption with keys of size 128, 192, and 256 bits. 
+
+
+\subsubsection{Advantages}
+Symmetric encryption is generally faster than asymmetric encryption.
+
+\
+
+Such algorithms are simpler to follow as only one key is used. 
+
+
+\subsubsection{Challenges}
+Ensuring that the key isn’t shared publicly can be challenging in insecure environments. 
+
+\subsection{Asymmetric Encryption}
+This subsection discusses asymmetric encryption.
+
+\subsubsection{Background}
+This type of encryption involves two keys: a public key and a private key. They are mathematically linked but not identical. 
+
+\
+
+The data is encrypted using the public key but can only be decrypted using the private key, ensuring that only the intended user can access this data.
+Rivest-Shamir-Adleman (RSA) uses asymmetric encryption.
+
+
+\subsubsection{Advantages}
+There is no need for secure communication channels as the public key can be shared without compromising security.
+
+\subsubsection{Challenges}
+Generally slower and more computationally intensive.
+
+\
+
+Private keys still have to be kept secure and if compromised, there can be significant security breaches. 
+
+
+\section{Rivest-Shamir-Adleman (RSA) Encryption}
+This section discusses RSA encryption.
+
+\subsection{Generating Keys}
+\begin{enumerate}
+    \item Select two large and distinct prime numbers $p$ and $q$
+    \begin{itemize}
+        \item Example: $p = 61$, $q = 53$
+    \end{itemize}
+    \item Let $n = p \times q$
+    \begin{itemize}
+        \item $n = 61 \times 53 = 3233$
+    \end{itemize}
+    \item Calculate $\phi(n) = (p-1) \times (q-1)$
+    \begin{itemize}
+        \item Euler's Totient Function finds the count of positive integers up to $n$ that are coprime with $n$.
+        \item $\phi(n) = $ Number of integers $k$ such that $1 \leq k \leq n$ and $\gcd(n,k) = 1$
+        \item $\phi(3233) = (61-1) \times (53-1) = 60 \times 52 = 3120$
+    \end{itemize}
+    \item Select an integer $e$ such that $1 < e < \phi(n)$ and $e$ is coprime to $\phi(n)$
+    \begin{itemize}
+        \item i.e., $\gcd(e,\phi(n)) = 1$
+        \item A common choice for $e$ is 65537 as it balances both security and efficiency
+        \item It is a Fermat Prime (of the form $(2^2)^4 + 1$)
+        \item Binary Representation: $10000000000000001_2$
+    \end{itemize}
+    \item Determine $d$ as the modular multiplicative inverse of $e$ mod $\phi(n)$
+    \begin{itemize}
+        \item $d \times e \equiv 1 \pmod{\phi(n)}$
+        \item Example: $d \times 65537 \equiv 1 \pmod{3120} \Rightarrow d = 2753$
+    \end{itemize}
+    \item The public key is $(e,n)$
+    \begin{itemize}
+        \item $(65537, 3233)$
+    \end{itemize}
+    \item The private key is $(d, n)$
+    \begin{itemize}
+        \item $(2753, 3233)$
+    \end{itemize}
+    \item Summary of Key Generation
+    \begin{itemize}
+        \item $e$ represents the public exponent
+        \item $n$ is the modulus
+        \item $d$ is the private exponent
+        \item $n$ is again the modulus
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Method}
+\begin{enumerate}
+    \item To encrypt a message $M$:
+    \begin{itemize}
+        \item Convert the message $M$ to an integer $m$:
+        \item The message should be an integer $m$ such that $0 \leq m < n$.
+        \item If $M$ is a string or another type of data, convert it to a byte array and then to an integer representation.
+        \item Compute the ciphertext $c$ using the public key:
+        \[
+        c = m^e \mod n
+        \]
+        \item Transmit the ciphertext $c$:
+        \item The encrypted message $c$ is now ready to be sent securely.
+    \end{itemize}
+    
+    \item To decrypt the ciphertext $c$:
+    \begin{itemize}
+        \item Compute the original message $m$ using the private key:
+        \[
+        m = c^d \mod n
+        \]
+        \item Convert the integer $m$ back to the original message $M$:
+        \item Convert the integer $m$ back to its original data format (e.g., byte array, string).
+    \end{itemize}
+\end{enumerate}
+
+
+\subsection{Example}
+This subsection provides an example of RSA encryption.
+I will be encrypting the message ``HI'' in this example.
+\begin{enumerate}
+    \item Generating Keys
+    \begin{itemize}
+        \item Choose primes:
+        \[
+        p = 17, \quad q = 11
+        \]
+        \item Compute \( n \):
+        \[
+        n = 17 \times 11 = 187
+        \]
+        \item Compute \( \phi(n) \):
+        \[
+        \phi(n) = (17 - 1) \times (11 - 1) = 16 \times 10 = 160
+        \]
+        \item Choose \( e \):
+        \[
+        e = 7
+        \]
+        \item Compute \( d \):
+        \begin{itemize}
+            \item Using the Extended Euclidean Algorithm, \( d = 23 \)
+        \end{itemize}
+        \item Public key: \( (e,n) = (7,187) \)
+        \item Private key: \( (d,n) = (23,187) \)
+    \end{itemize}
+    
+    \item Encrypting ``HI'':
+    \begin{itemize}
+        \item Convert ``HI'' to integers:
+        \begin{itemize}
+            \item H = 8, I = 9 (using a simple 1-26 encoding for simplicity)
+            \item Concatenate: ``HI'' \( \rightarrow \) 89
+        \end{itemize}
+        \item Encrypt \( m = 89 \):
+        \[
+        c = 89^7 \mod 187 = 11
+        \]
+    \end{itemize}
+    
+    \item Decrypting ``HI'':
+    \begin{itemize}
+        \item Decrypt \( c = 11 \):
+        \[
+        m = 11^{23} \mod 187 = 89
+        \]
+        \item Convert 89 back to ``HI''.
+    \end{itemize}
+\end{enumerate}
+
+\section{Implications for Future Cybersecurity}
+The advancement of cryptographic techniques is essential in maintaining secure communication and data integrity. Modern cryptographic algorithms provide robust protection against unauthorised access. However, as technology evolves, so do the methods of potential attackers. This raises the need for continuous improvement and adaptation in cryptographic methods.
+
+\section{Challenges Posed by Quantum Computing}
+Quantum computing presents significant challenges to current cryptographic systems. Classical encryption algorithms, such as RSA, rely heavily on the computational difficulty of problems like prime factorisation. Quantum computers, with their ability to solve these problems exponentially faster through algorithms like Shor’s algorithm, threaten to render traditional cryptographic methods obsolete. This potential vulnerability creates an urgent need to develop and implement quantum-resistant cryptographic algorithms to ensure the continued security of digital communications and data storage.
+
+\section{Approach to Improving Current Methods to Preserve Data Security}
+To tackle the new threats introduced by quantum computing, the cryptographic community is vigorously researching and developing quantum-resistant algorithms. These algorithms rely on mathematical problems thought to be immune to quantum attacks, including lattice-based cryptography, hash-based cryptography, and code-based cryptography. Furthermore, hybrid cryptographic systems, which merge classical and quantum-resistant algorithms, are being investigated as a transitional solution.
+
+\
+
+Continued collaboration between academia, industry, and government agencies is essential to standardise these new cryptographic methods and promote their widespread adoption. 
+
+
+\section{Future Trends and Extended Impact on Cybersecurity}
+Looking ahead, the future of cybersecurity will be deeply shaped by the advent of quantum-resistant cryptographic algorithms. Additionally, the ongoing advancements in artificial intelligence and machine learning will play a crucial role in enhancing cybersecurity, providing more sophisticated tools for detecting and responding to threats.
+
+\section{Conclusion}
+This investigation delved into the intricate relationship between mathematical principles and modern cryptographic algorithms, highlighting the foundational role that mathematics plays in ensuring the security of digital communications. Key findings include the critical importance of number theory, group theory, and modular arithmetic in the construction and effectiveness of encryption methods. Through exploring RSA encryption, we demonstrated how mathematical concepts such as prime factorisation and Euler’s totient function underpin the robustness of cryptographic systems.
+
+\
+
+Mathematical principles provide the necessary complexity and security to protect data against unauthorised access. Number theory, for instance, underpins the difficulty of prime factorisation, a challenge that forms the basis of RSA encryption. Group theory offers the structure needed for secure communication protocols, ensuring that operations within a cryptographic system behave predictably and securely. Modular arithmetic introduces non-linearity, which enhances the difficulty of reversing encryption without the appropriate key.
+
+\
+
+In essence, the interplay of these mathematical principles ensures that cryptographic algorithms are not only robust but also resilient against evolving threats. As cybersecurity advances, particularly with the emergence of quantum computing, the continued integration of advanced mathematical principles will be crucial in developing next-generation cryptographic solutions.
+\section{References}
+\begin{itemize}
+    \item \href{https://tresorit.com/blog/the-history-of-encryption-the-roots-of-modern-day-cyber-security/#:~:text=The%20earliest%20written%20evidence%20of,original%20meaning%20of%20the%20text}{Tresorit - The History of Encryption}
+    
+    \item \href{https://brilliant.org/wiki/rsa-encryption/}{Brilliant - RSA Encryption}
+    
+    \item \href{https://www.thalesgroup.com/en/markets/digital-identity-and-security/magazine/brief-history-encryption}{Thales - A Brief History of Encryption}
+    
+    \item \href{https://www.techtarget.com/searchsecurity/definition/RSA#:~:text=RSA%20is%20a%20type%20of,is%20used%20to%20decrypt%20it}{TechTarget - RSA Definition}
+    
+    \item \href{https://www.geeksforgeeks.org/rsa-algorithm-cryptography/}{GeeksForGeeks - RSA Algorithm}
+    
+    \item \href{https://youtu.be/qph77bTKJTM?feature=shared}{TomRocksMaths - RSA Algorithm Video}
+    
+    \item \href{https://youtu.be/4zahvcJ9glg?feature=shared}{Eddie Woo - RSA Algorithm Video}
+    
+    \item \href{https://www.redhat.com/en/blog/brief-history-cryptography}{Red Hat - A Brief History of Cryptography}
+\end{itemize}
+\newpage
+
+
+\end{document}
